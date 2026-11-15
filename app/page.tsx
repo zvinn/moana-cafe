@@ -57,7 +57,7 @@ export default async function Home() {
         chatOnWhatsApp={messages.contact.chat_on_whatsapp}
         followUs={messages.contact.follow_us}
       />
-      <FooterServer rightsReserved={messages.footer.rights_reserved} />
+      <FooterServer />
     </>
   );
 }

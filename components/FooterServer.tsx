@@ -1,11 +1,16 @@
-interface FooterServerProps {
-  rightsReserved: string;
-}
-
-export function FooterServer({ rightsReserved }: FooterServerProps) {
+export function FooterServer() {
   return (
     <footer className="bg-primary text-white text-center py-4">
-      <p>&copy; {new Date().getFullYear()} <a href="https://wasalat.org" className="text-white hover:underline uppercase">wasalat</a>. {rightsReserved}</p>
+      <p>
+        <a
+          href="https://zvinn.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:underline"
+        >
+          zvinn.github.io
+        </a>
+      </p>
     </footer>
   );
 }
