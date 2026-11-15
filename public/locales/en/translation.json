@@ -1,0 +1,400 @@
+{
+  "hero": {
+    "crafted_with_freshness": "Crafted with Freshness",
+    "taste_the": "Taste the",
+    "waves_of_flavor": "Waves of Flavor",
+    "description": "Experience the perfect blend of artisanal coffee, signature iced mixes, and fresh berry refreshers. A tropical escape served daily at Moana Café.",
+    "view_menu": "View Menu",
+    "contact_location": "Contact & Location",
+    "loved_by_locals": "Loved by 1,000+ locals",
+    "featured": "Featured",
+    "milkshake_oreo": "Milkshake Oreo",
+    "milkshake_oreo_description": "Creamy milkshake blended with Oreo cookies and topped with whipped cream.",
+    "blue_redbull":"Blue Redbull",
+    "blue_redbull_description":"A refreshing Red Bull drink blended with blue curaçao, featuring a vibrant blue color and a refreshing citrusy flavor, garnished with fresh lemon and mint."
+
+
+  },
+  "nav": {
+    "home": "Home",
+    "why_us": "Why Us",
+    "featured_drinks": "Featured Drinks",
+    "menu": "Menu",
+    "gallery": "Gallery",
+    "reviews": "Reviews",
+    "location": "Location",
+    "contact": "Contact"
+  },
+  "why_us": {
+    "title": "Why Choose Moana?",
+    "subtitle": "We're more than a café — we're a tropical escape offering a unique experience with every sip.",
+    "points": [
+      {
+        "title": "Refined Taste",
+        "description": "A menu specifically designed to suit those with high taste and distinction.",
+        "icon": "Coffee"
+      },
+      {
+        "title": "Versatile Atmosphere",
+        "description": "An ideal space for enjoying time with friends or holding quiet business discussions.",
+        "icon": "Users"
+      },
+      {
+        "title": "Comfort & Class",
+        "description": "Your ultimate destination for achieving the balance between comfort and sophistication.",
+        "icon": "Star"
+      }
+    ]
+  },
+  "menu": {
+    "title": "Menu",
+    "subtitle": "Delicious bites and handcrafted drinks to pair with every mood.",
+    "currency": "EGP",
+    "view_menu": "View Menu",
+    "view_menu_file": "View menu file",
+    "categories": [
+      {
+        "title": "Tea",
+        "items": [
+          { "name": "Red tea", "price": 34 },
+          { "name": "Milk Tea", "price": 49 },
+          { "name": "Teapot tea 1", "price": 36 },
+          { "name": "Teapot tea 2", "price": 58 },
+          {
+            "name": "Flavored tea (Strawberry-peach-passion)",
+            "price": 41
+          },
+          { "name": "Flavored Milk tea", "price": 56 },
+          { "name": "Green tea", "price": 34 },
+          { "name": "Green mint tea", "price": 34 }
+        ]
+      },
+      {
+        "title": "Cold Flavored Tea",
+        "items": [
+          { "name": "Passion Peach", "price": 87 },
+          { "name": "Kiwi Manga", "price": 87 },
+          { "name": "Blueberry vanilla", "price": 87 },
+          { "name": "Pineapple Coconut", "price": 87 },
+          { "name": "Apple cinnamon", "price": 87 }
+        ]
+      },
+      {
+        "title": "Herbal Drinks",
+        "items": [
+          { "name": "Anise", "price": 34 },
+          { "name": "Mint", "price": 34 },
+          { "name": "Hot lemon", "price": 56 },
+          { "name": "Cinnamon", "price": 34 },
+          { "name": "Cinnamon Milk", "price": 68 },
+          { "name": "Ginger", "price": 41 },
+          { "name": "Hot Cider", "price": 67 },
+          { "name": "Ginger Milk", "price": 68 },
+          { "name": "Moana Teapot", "price": 85 },
+          { "name": "Moana Hibiscus", "price": 76 },
+          { "name": "Linden Flower", "price": 33 },
+          { "name": "Chamomile", "price": 33 },
+          { "name": "Herbal cocktail", "price": 56 },
+          { "name": "Moana Sahlab", "price": 94 },
+          { "name": "Vitamin C", "price": 73 }
+        ]
+      },
+
+      {
+        "title": "Hot Chocolate & Coffee",
+        "items": [
+          { "name": "Hot Chocolate Classic", "price": 94 },
+          { "name": "Hot Chocolate Marshmallow", "price": 114 },
+          { "name": "Hot Chocolate Nutella", "price": 116 },
+          { "name": "Hot Chocolate Kinder", "price": 119 },
+          { "name": "White Chocolate", "price": 114 },
+          { "name": "Peanut Butter Nutella", "price": 114 },
+          { "name": "Turkish coffee Single", "price": 45 },
+          { "name": "Turkish coffee Double", "price": 59 },
+          { "name": "Spiced Turkish Single", "price": 45 },
+          { "name": "Spiced Turkish Double", "price": 59 },
+          { "name": "French coffee", "price": 69 },
+          { "name": "Hazelnut coffee", "price": 72 },
+          { "name": "Nutella coffee", "price": 84 },
+          { "name": "Espresso Single", "price": 59 },
+          { "name": "Espresso Double", "price": 71 },
+          { "name": "Mocha", "price": 116 },
+          { "name": "White Mocha", "price": 116 },
+          { "name": "Cappuccino", "price": 117 },
+          { "name": "Cappuccino Flavored", "price": 126 },
+          { "name": "Moana Espresso", "price": 69 },
+          { "name": "Macchiato Single", "price": 73 },
+          { "name": "Macchiato Double", "price": 83 },
+          { "name": "Classic cortado", "price": 89 },
+          { "name": "Latte", "price": 99 },
+          { "name": "Nescafe", "price": 92 },
+          { "name": "Flat white", "price": 124 },
+          { "name": "Black Nescafe", "price": 73 },
+          { "name": "Black Americano Long Black", "price": 89 },
+          { "name": "White Americano", "price": 99 },
+          { "name": "V60", "price": 126 },
+          { "name": "Americano Coffee With Milk", "price": 107 }
+        ]
+      },
+      {
+        "title": "Cold Coffee",
+        "items": [
+          { "name": "Iced Espresso", "price": 86 },
+          { "name": "Iced caramel Macchiato", "price": 126 },
+          { "name": "Iced latte", "price": 116 },
+          { "name": "Iced latte Roze", "price": 139 },
+          { "name": "Iced latte Cinnabon Honey", "price": 128 },
+          { "name": "Iced latte Spanish", "price": 129 },
+          { "name": "Iced Strawberry Spanish Latte", "price": 136 },
+          { "name": "Iced Mocha", "price": 129 },
+          { "name": "Iced White Mocha", "price": 129 },
+          { "name": "Banana Mocha Latte", "price": 136 },
+          { "name": "Iced cappuccino", "price": 129 },
+          { "name": "Iced chocolate", "price": 124 },
+          { "name": "Iced V60 Cold Brew", "price": 136 }
+        ]
+      },
+      {
+        "title": "Frappe",
+        "note": "Prices do not include whipped cream. Extra whipped cream costs 30 EGP.",
+        "items": [
+          { "name": "Frappe", "price": 109 },
+          { "name": "Caramel frappe", "price": 122 },
+          { "name": "Hazelnut Frappe", "price": 122 },
+          { "name": "Mocha frappe", "price": 125 },
+          { "name": "Oreo frappe", "price": 128 },
+          { "name": "Lotus frappe", "price": 125 },
+          { "name": "Blue berry frappe", "price": 125 },
+          { "name": "Kinder frappe", "price": 128 }
+        ]
+      },
+      {
+        "title": "Milkshake",
+        "note": "Prices do not include whipped cream. Extra whipped cream costs 30 EGP.",
+        "items": [
+          { "name": "Vanilla Milkshake", "price": 113 },
+          { "name": "Chocolate Milkshake", "price": 113 },
+          { "name": "Strawberry Milkshake", "price": 113 },
+          { "name": "Mango Milkshake", "price": 113 },
+          { "name": "Nutella Milkshake", "price": 124 },
+          { "name": "Oreo Milkshake", "price": 124 },
+          { "name": "Lotus Milkshake", "price": 124 },
+          { "name": "Pistachio Milkshake", "price": 127 },
+          { "name": "Blueberry Milkshake", "price": 116 },
+          { "name": "Mixed Berry Milkshake", "price": 116 },
+          { "name": "Kinder Milkshake", "price": 127 },
+          { "name": "Lavender Milkshake", "price": 134 },
+          { "name": "Rose Milkshake", "price": 134 }
+        ]
+      },
+
+      {
+        "title": "Smoothies",
+        "items": [
+          { "name": "Pineapple", "price": 99 },
+          { "name": "Watermelon", "price": 99 },
+          { "name": "Peach", "price": 99 },
+          { "name": "Mango", "price": 106 },
+          { "name": "Strawberry", "price": 106 },
+          { "name": "Kiwi", "price": 106 },
+          { "name": "Blueberry", "price": 99 },
+          { "name": "Raspberry", "price": 99 },
+          { "name": "Mixed Berry", "price": 99 },
+          { "name": "Passion Lemon Mint", "price": 119 },
+          { "name": "Yellow Tasty", "price": 119 },
+          { "name": "Blueberry Frosted", "price": 119 },
+          { "name": "Blue Pineapple", "price": 119 }
+        ]
+      },
+      {
+        "title": "Fresh Juices",
+        "items": [
+          { "name": "Banana Milk", "price": 114 },
+          { "name": "Banana", "price": 102 },
+          { "name": "Strawberry", "price": 102 },
+          { "name": "Strawberry Milk", "price": 114 },
+          { "name": "Guava", "price": 102 },
+          { "name": "Guava Milk", "price": 114 },
+          { "name": "Guava Mint", "price": 119 },
+          { "name": "Lemon Mint", "price": 84 },
+          { "name": "Orange", "price": 104 },
+          { "name": "Watermelon", "price": 104 },
+          { "name": "Watermelon Mint", "price": 119 },
+          { "name": "Pineapple", "price": 104 },
+          { "name": "Peach", "price": 104 },
+          { "name": "Mango", "price": 114 },
+          { "name": "Mango Mint", "price": 121 }
+        ]
+      },
+      {
+        "title": "Cocktails",
+        "items": [
+          { "name": "Banana Strawberry", "price": 119 },
+          { "name": "Mango Pineapple", "price": 121 },
+          { "name": "Mango Peach", "price": 121 },
+          { "name": "Banana Berry", "price": 119 },
+          { "name": "Pina Colada", "price": 119 }
+        ]
+      },
+
+      {
+        "title": "Red Bulls & Specialty",
+        "items": [
+          { "name": "Blue red bull", "price": 109 },
+          { "name": "Passion red bull", "price": 109 },
+          { "name": "Cherry red bull", "price": 109 },
+          { "name": "Espresso Red Bull Wake Up", "price": 139 },
+          { "name": "Passion Lemon Mint Smoothie (Special)", "price": 124 },
+          { "name": "Yellow Tasty Smoothie (Special)", "price": 131 },
+          { "name": "Blueberry Frosted Smoothie (Special)", "price": 131 }
+        ]
+      },
+      {
+        "title": "Mojito",
+        "items": [
+          { "name": "Classic Mojito", "price": 89 },
+          { "name": "Blue Curacao", "price": 98 },
+          { "name": "Cherry mojito", "price": 98 },
+          { "name": "Passion Mojito", "price": 98 },
+          { "name": "Moana Mojito", "price": 106 },
+          { "name": "Mojito Red", "price": 98 },
+          { "name": "Mojito Mango", "price": 98 },
+          { "name": "Peach Malibu Color", "price":128 },
+          { "name": "Lemon Mint Honey Soda", "price": 102 },
+          { "name": "Cherry cola", "price": 92 }
+        ]
+      },
+      {
+        "title": "Lemonade & Mocktails",
+        "items": [
+          { "name": "Blue Lemonade", "price": 109 },
+          { "name": "Pink Lemonade", "price": 124 },
+          { "name": "Lavender Lemonade", "price": 124 },
+          { "name": "Electric Moana", "price": 124 },
+          { "name": "Peach Ginger", "price": 119 },
+          { "name": "Berry Coconut", "price": 132 },
+          { "name": "Coconut Rose", "price": 132 },
+          { "name": "Green Pineapple", "price": 149 }
+        ]
+      },
+      {
+        "title": "Matcha Drinks",
+        "items": [
+          { "name": "Iced Matcha Latte", "price": 130 },
+          { "name": "Hot Matcha Latte", "price": 124 },
+          { "name": "Iced Mango Matcha", "price": 142 },
+          { "name": "Iced Strawberry Matcha", "price": 142 },
+          { "name": "Peach Matcha", "price": 142 },
+          { "name": "Iced Spanish Matcha", "price": 146 },
+          { "name": "Iced Raspberry Matcha", "price": 142 }
+        ]
+      },
+      {
+        "title": "Soft Drinks",
+        "items": [
+          { "name": "Small water", "price": 15 },
+          { "name": "Can Soda", "price": 55 },
+          { "name": "Red Bull", "price": 80 },
+          { "name": "Iced cream Quadro", "price": 120 }
+        ]
+      },
+      {
+        "title": "Desserts",
+        "items": [
+          {
+            "name": "Molten Cake",
+            "price": 115
+          },
+          {
+            "name": "Cheesecake",
+            "price": 115
+          },
+          {
+            "name": "Tiramisu",
+            "price": 90
+          },
+          {
+            "name": "Cinnabon",
+            "price": 100
+          },
+          {
+            "name": "English Cake",
+            "price": 20
+          }
+        ]
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A peek inside our café and creations."
+  },
+  "reviews": {
+    "title": "What Locals Say",
+    "subtitle": "Real reviews from our wonderful customers.",
+    "review_list": [
+      {
+        "name": "Ghenwa Olabi",
+        "text": "Honestly, the place is amazing and very nice. The staff is super sweet, and the location is easy to reach — not far like everyone says. The atmosphere is beautiful and comfortable. Nothing they offer is bad, and their prices aren’t overpriced like I heard. They also have games, and the staff keeps the vibe fun — they don’t let anyone sit bored, and they help you have a great time. 🥰♥️"
+      },
+      {
+        "name": "Walaa Aly",
+        "text": "♥️ It's a really cozy and lovely café! The atmosphere is calm, the staff are friendly, and the drinks are delicious. It’s the perfect place to relax, study, or spend time with friends. Highly recommended!"
+      },
+      {
+        "name": "Mohamed Yassin",
+        "text": "A very elegant place offering high-quality beverages and desserts, with exceptionally friendly staff"
+      }
+    ]
+  },
+  "location": {
+    "title": "Location & Hours",
+    "subtitle": "Find us and drop by — we’re open daily.",
+    "contact_info_title": "Contact Information",
+    "address_title": "Address",
+    "address": "Street 9 with 8, Bianchi, Al Bitash,\n Agami, Alexandria Governorate, Egypt",
+    "hours_title": "Hours",
+    "hours": "All days: 24 hours",
+    "phone_title": "Phone",
+    "email_title": "Email"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We’d love to hear from you — questions, orders, or feedback.",
+    "lets_connect": "Let’s Connect",
+    "connect_p": "Reach out for catering, events, or general inquiries.",
+    "chat_on_whatsapp": "Chat on WhatsApp",
+    "follow_us": "Follow Us",
+    "name_label": "Full Name",
+    "name_placeholder": "Enter your name",
+    "phone_label": "Phone",
+    "phone_placeholder": "Enter your phone number",
+    "message_label": "Message",
+    "message_placeholder": "Type your message...",
+    "send_message": "Send Message",
+    "fill_required": "Please fill in all required fields.",
+    "error_sending": "Error sending message. Please try again later.",
+    "sent_success": "Your message has been sent successfully!"
+  },
+  "footer": {
+    "rights_reserved": "All rights reserved."
+  },
+  "meta": {
+    "title": "Moana Café - Seaside Coffee & Relaxation",
+    "description": "Welcome to Moana Café, a serene seaside spot offering the finest coffee, pastries, and ocean views. Join us for a relaxing experience.",
+    "keywords": "Moana, Café, Coffee, Seaside, Ocean, Relax, Pastries, Bahrain, Bianchi, moana, agami, hidden gem, spot, caffe",
+    "menu": {
+      "title": "Our Menu - Moana Café",
+      "description": "Explore our menu of handcrafted coffees, fresh pastries, and delicious snacks at Moana Café."
+    },
+    "contact": {
+      "title": "Contact Us - Moana Café",
+      "description": "Get in touch with Moana Café. Find our location, opening hours, and contact information."
+    }
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist. It might have been moved or deleted.",
+    "go_home": "Go back to Home"
+  }
+}
