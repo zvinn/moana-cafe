@@ -1,19 +1,38 @@
-"use client";
-
-import { useTranslation } from "react-i18next";
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
 import phoneNumbers from "@/utils/phoneNumbers";
-export function Location() {
-  const { t } = useTranslation();
+
+interface LocationServerProps {
+  title: string;
+  subtitle: string;
+  contactInfoTitle: string;
+  addressTitle: string;
+  address: string;
+  hoursTitle: string;
+  hours: string;
+  phoneTitle: string;
+  emailTitle: string;
+}
+
+export function LocationServer({
+  title,
+  subtitle,
+  contactInfoTitle,
+  addressTitle,
+  address,
+  hoursTitle,
+  hours,
+  phoneTitle,
+  emailTitle,
+}: LocationServerProps) {
   return (
     <section className="py-15 md:py-19" id="location">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">
-            {t("location.title")}
+            {title}
           </h2>
           <p className="text-lg text-muted font-medium">
-            {t("location.subtitle")}
+            {subtitle}
           </p>
         </div>
 
@@ -38,7 +57,7 @@ export function Location() {
           {/* Info Card */}
           <div className="bg-background/60 rounded-3xl p-8 md:p-12 shadow-lg border border-primary-5 flex flex-col justify-center h-full">
             <h3 className="text-2xl font-bold text-primary mb-8">
-              {t("location.contact_info_title")}
+              {contactInfoTitle}
             </h3>
 
             <div className="space-y-8">
@@ -48,10 +67,10 @@ export function Location() {
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-primary mb-1">
-                    {t("location.address_title")}
+                    {addressTitle}
                   </h4>
                   <a href="https://maps.app.goo.gl/a62UFJAd68f6WeFu8" target="_blank" className="text-muted" style={{ whiteSpace: "pre-line" }}>
-                    {t("location.address")}
+                    {address}
                   </a>
                 </div>
               </div>
@@ -62,9 +81,9 @@ export function Location() {
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-primary mb-1">
-                    {t("location.hours_title")}
+                    {hoursTitle}
                   </h4>
-                  <p className="text-muted">{t("location.hours")}</p>
+                  <p className="text-muted">{hours}</p>
                 </div>
               </div>
 
@@ -74,9 +93,9 @@ export function Location() {
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-primary mb-1">
-                    {t("location.phone_title")}
+                    {phoneTitle}
                   </h4>
-              {phoneNumbers.map((phone, idx)=> (
+              {phoneNumbers.map((phone, idx) => (
                   <a key={phone || idx} href={`tel:${phone}`} target="_blank" className="text-muted block my-1" dir="ltr">
                     {phone}
                   </a>
@@ -90,7 +109,7 @@ export function Location() {
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-primary mb-1">
-                    {t("location.email_title")}
+                    {emailTitle}
                   </h4>
                   <a href={`mailto:hello@moanacafes.com`} target="_blank" className="text-muted text-nowrap" dir="ltr">hello@moanacafes.com</a>
                 </div>

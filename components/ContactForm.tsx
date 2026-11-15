@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Turnstile from "react-turnstile";
 import { Send } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
@@ -22,9 +21,6 @@ function Toast({ type, message }: { type: string; message: string }) {
 export default function ContactForm() {
   const { t, i18n } = useTranslation();
 
-  // get SITE_KEY from environment variables
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
-  const [token, setToken] = useState("");
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<{ type: string; message: string } | null>(
     null,
@@ -51,7 +47,6 @@ export default function ContactForm() {
     setToast(null);
 
     const formData = new FormData(e.currentTarget);
-    formData.append("cf-turnstile-response", token);
 
     // Validate
     const validation = validateFields(formData);
@@ -82,8 +77,7 @@ export default function ContactForm() {
       setToast({ type: "success", message: t("contact.sent_success") });
 
       (e.target as HTMLFormElement).reset();
-      setToken("");
-    } catch (err) {
+    } catch {
       setToast({ type: "error", message: t("contact.error_sending") });
     }
 
@@ -151,16 +145,6 @@ export default function ContactForm() {
             placeholder={t("contact.message_placeholder")}
           />
         </div>
-
-        {/* Honeypot */}
-        <input type="text" name="honeypot" style={{ display: "none" }} />
-        {/* Turnstile */}
-        <Turnstile
-          sitekey={siteKey}
-          onVerify={(t) => setToken(t)}
-          size="flexible"
-          className="p-0 m-0 scale-90"
-        />
 
         {/* Toast */}
         {toast && (

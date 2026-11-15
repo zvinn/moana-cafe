@@ -1,8 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
+const VOLUME = 0.25;
+const STORAGE_KEY = "moana-sound";
 
 export default function WaterSound() {
+  const { t } = useTranslation();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -11,59 +17,45 @@ export default function WaterSound() {
 
     if (!audio) return;
 
-    audio.volume = 0.80; //80%
+    audio.volume = VOLUME;
     audio.loop = true;
 
-    // Check user's previous preference
-    const saved = localStorage.getItem("moana-sound");
+    let cancelled = false;
 
-    if (saved === "on") {
-      setPlaying(false);
-    }
+    const resumeIfEnabled = async () => {
+      if (localStorage.getItem(STORAGE_KEY) !== "on") return;
 
-    // Handle leaving / returning to the tab
-    const handleVisibilityChange = async () => {
-      if (document.hidden) {
-        // User left the website
-        audio.pause();
-        setPlaying(false);
-      } else {
-        // User came back
-        const soundEnabled = localStorage.getItem("moana-sound");
-
-        if (soundEnabled === "on") {
-          try {
-            await audio.play();
-            setPlaying(true);
-          } catch (error) {
-            console.log("Could not resume ocean sound:", error);
-            setPlaying(false);
-          }
-        }
+      try {
+        await audio.play();
+        if (!cancelled) setPlaying(true);
+      } catch {
+        if (!cancelled) setPlaying(false);
       }
     };
 
-    document.addEventListener(
-      "visibilitychange",
-      handleVisibilityChange
-    );
+    void resumeIfEnabled();
 
-    // Stop sound when component/page is unloaded
+    const handleVisibilityChange = async () => {
+      if (document.hidden) {
+        audio.pause();
+        setPlaying(false);
+      } else {
+        await resumeIfEnabled();
+      }
+    };
+
     const handlePageHide = () => {
       audio.pause();
       audio.currentTime = 0;
     };
 
+    document.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("pagehide", handlePageHide);
 
     return () => {
-      document.removeEventListener(
-        "visibilitychange",
-        handleVisibilityChange
-      );
-
+      cancelled = true;
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("pagehide", handlePageHide);
-
       audio.pause();
       audio.currentTime = 0;
     };
@@ -74,73 +66,39 @@ export default function WaterSound() {
 
     if (!audio) return;
 
+    if (playing) {
+      audio.pause();
+      setPlaying(false);
+      localStorage.setItem(STORAGE_KEY, "off");
+      return;
+    }
+
     try {
-      if (playing) {
-        audio.pause();
-        setPlaying(false);
-
-        localStorage.setItem("moana-sound", "off");
-      } else {
-        audio.volume = 0.12;
-        audio.loop = true;
-
-        await audio.play();
-
-        setPlaying(true);
-        localStorage.setItem("moana-sound", "on");
-      }
-    } catch (error) {
-      console.error("Ocean sound error:", error);
+      await audio.play();
+      setPlaying(true);
+      localStorage.setItem(STORAGE_KEY, "on");
+    } catch {
       setPlaying(false);
     }
   };
 
+  const label = playing ? t("sound.on") : t("sound.off");
+
   return (
     <>
-      <audio
-        ref={audioRef}
-        src="/audios/ocean-waves.mp3"
-        preload="auto"
-        loop
-      />
+      <audio ref={audioRef} src="/audios/ocean-waves.mp3" preload="none" loop />
 
       <button
+        type="button"
         onClick={toggleSound}
-        className="
-          fixed
-          bottom-6
-          right-6
-          z-50
-          flex
-          items-center
-          gap-2
-          rounded-full
-          border
-          border-white/30
-          bg-background/80
-          px-4
-          py-2.5
-          text-sm
-          font-medium
-          text-slate-800
-          shadow-lg
-          backdrop-blur-md
-          transition-all
-          duration-300
-          hover:scale-105
-          hover:bg-background
-          active:scale-95
-        "
+        aria-pressed={playing}
+        aria-label={label}
+        title={label}
+        className="fixed bottom-6 end-6 z-50 flex items-center gap-2 rounded-full border border-white/30 bg-background/80 px-4 py-2.5 text-sm font-medium text-slate-800 shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-background active:scale-95"
       >
-        <span className="text-base">
-          {playing ? "🔊" : "🌊"}
-        </span>
-
-        <span>
-          {playing ? "Sound On" : "Sound Off"}
-        </span>
+        {playing ? <Volume2 size={18} /> : <VolumeX size={18} />}
+        <span>{label}</span>
       </button>
     </>
   );
 }
-

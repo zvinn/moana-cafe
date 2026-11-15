@@ -1,6 +1,9 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
+import Image from "next/image";
 
 import {
   Menu,
@@ -14,7 +17,6 @@ import {
   Mail,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 export function Navigation() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +33,6 @@ export function Navigation() {
       href: "why-us",
       icon: <Users size={24} strokeWidth={1.5} />,
     },
-    // {
-    //   name: t("nav.featured_drinks"),
-    //   href: "Featured-Drinks",
-    //   icon: <CupSoda size={24} strokeWidth={1.5} />,
-    // },
     {
       name: t("nav.menu"),
       href: "menu",
@@ -82,6 +79,7 @@ export function Navigation() {
           i18n.changeLanguage(langCode);
           document.cookie = `lang=${langCode}; path=/; max-age=31536000; samesite=lax`;
         }}
+        lang={langCode}
         className={cn(
           `relative transition-all font-semibold px-4 py-1 rounded`,
           isMobile ? "text-lg bg-card" : "text-sm  ",
@@ -170,9 +168,10 @@ export function Navigation() {
 
         {/* Mobile Menu Button */}
         <button
-          className={`lg:hidden p-2 text-primary hover:bg-primary/10 rounded-full transition-colors absolute right-4`}
+          className="lg:hidden p-2 text-primary hover:bg-primary/10 rounded-full transition-colors absolute end-4"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -196,8 +195,9 @@ export function Navigation() {
         ))}
         {renderLangToggle(true)}
         <button
-          className="absolute top-6 right-6 p-2 text-background  hover:bg-primary/10 rounded-full transition-colors"
+          className="absolute top-6 end-6 p-2 text-background hover:bg-primary/10 rounded-full transition-colors"
           onClick={() => setIsOpen(false)}
+          aria-label="Close menu"
         >
           <X size={24} />
         </button>

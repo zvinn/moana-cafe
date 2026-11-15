@@ -3,6 +3,7 @@
 import React from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 export function HeroSection() {
   const { t, i18n } = useTranslation();
@@ -14,11 +15,11 @@ export function HeroSection() {
   }
   return (
     <section
-      className="relative min-h-screen w-full flex items-center pt-28 md:pt-24 pb-20 md:pb-12 overflow-hidden bg-[url('/BGs/hero-bg.webp')] bg-no-repeat bg-bottom-right bg-cover"
+      className="relative min-h-screen w-full flex items-center pt-28 md:pt-24 pb-20 md:pb-12 overflow-hidden bg-[url('/BGs/hero-bg.webp')] bg-no-repeat bg-right-bottom bg-cover"
       id="home"
     >
       {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-s from-[#FAF8F3] to-transparent opacity-50 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-[#FAF8F3] to-transparent opacity-50 pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-[128px] opacity-5 animate-pulse" />
       <div className="absolute top-0 right-0 w-125 h-125 bg-deco rounded-full mix-blend-multiply filter blur-[128px] opacity-10" />
 
@@ -86,9 +87,11 @@ export function HeroSection() {
                       i > 1 ? "-ms-3" : ""
                     }`}
                   >
-                    <img
-                      src={`https://i.pravatar.cc/100?img=${i + 10}`}
+                    <Image
+                      src={`/images/avatars/avatar-${i}.webp`}
                       alt="User"
+                      width={40}
+                      height={40}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -104,10 +107,14 @@ export function HeroSection() {
               {/* Image Overlay Gradient */}
               <div className="absolute inset-0  z-10" />
               <div className="lg:h-full w-full mx-auto rounded-2xl">
-                <img
-                  src={`/blue-hero-drink.webp`}
+                <Image
+                  src="/blue-hero-drink.webp"
                   alt="Blue Redbull"
-                  className=" w-full h-full object-cover transform transition-transform duration-2000 animate-tada animate-duration-2000 animate-iteration-count-infinite scale-85 md:rotate-12 rounded-2xl"
+                  width={400}
+                  height={500}
+                  priority
+                  className="w-full h-full object-cover transform transition-transform duration-2000 animate-tada animate-duration-2000 animate-iteration-count-infinite scale-85 md:rotate-12 rounded-2xl"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
 

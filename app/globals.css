@@ -1,15 +1,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "tailwindcss";
-@import 'tailwind-animations';
+@import "tailwind-animations";
 
 @custom-variant dark (&:is(.dark *));
-@tailwind utilities;
-
-/* shadcn custom utilities (must be imported after Tailwind directives) */
-/* shadcn custom utilities (inlined so @layer utilities is after @tailwind utilities) */
-@layer utilities {
-}
 
 /*
   Shadcn-style globals.css adapted to your palette and fonts.
@@ -29,6 +23,10 @@
     scroll-behavior: smooth;
     height: 100%;
     @apply font-sans;
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
   }
 
   body {
@@ -85,10 +83,6 @@
   }
 
   /* Focus ring for accessibility (used by many shadcn components) */
-  :focus {
-    outline: none;
-  }
-
   :focus-visible {
     box-shadow: 0 0 0 3px rgba(62, 39, 35, 0.12);
     border-radius: calc(var(--radius));
@@ -117,10 +111,6 @@
   }
   * {
     @apply border-border outline-ring/50;
-  }
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
   }
 }
 

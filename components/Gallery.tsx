@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const images = [
   `16493E06-EC8C-4BE0-9AEF-0530F4CBB23D.webp`,
@@ -90,21 +91,27 @@ export function Gallery() {
               className="flex-none w-[85vw] md:w-[300px] aspect-[3/4] snap-center"
             >
               <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg group">
-                <img
+                <Image
                   src={`/media/images/${src}`}
                   alt={`Gallery image ${index + 1}`}
+                  width={300}
+                  height={400}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 85vw, 300px"
                 />
               </div>
             </div>
           ))}
         </div>
         <div className="block md:hidden bg-background/60 rounded-xl p-4">
-          <img
+          <Image
             src={`/media/images/${mobileImagePreview}`}
             alt="Gallery image"
+            width={300}
+            height={400}
             className="w-full h-full object-cover rounded-2xl"
+            sizes="100vw"
           />
           <div className="flex gap-4 mt-4 overflow-x-auto scrollbar-thumb-primary scrollbar-track-transparent scrollbar-thin scrollbar-gutter-auto pb-3">
             {images.map((src, index) => (
@@ -113,11 +120,14 @@ export function Gallery() {
                 className={`flex-none w-24 h-32 rounded-2xl overflow-hidden cursor-pointer border-2 ${mobileImagePreview === src ? "border-primary" : "border-transparent"} transition-all duration-300`}
                 onClick={() => setMobileImagePreview(src)}
               >
-                <img
+                <Image
                   src={`/media/images/${src}`}
                   alt={`Gallery image ${index + 1}`}
+                  width={96}
+                  height={128}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  sizes="96px"
                 />
               </div>
             ))}

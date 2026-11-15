@@ -2,23 +2,24 @@
 
 import { useTranslation } from "react-i18next";
 import { Star } from "lucide-react";
+import Image from "next/image";
+import { reviews, reviewsAr, type Review } from "@/content/reviews";
+
+const fallbackAvatar = "/images/reviews/review-1.webp";
 
 const reviewImages = [
-  "https://lh3.googleusercontent.com/a-/ALV-UjVx5P6athT3Enmc6fTkn-XeHti3t6L5cyEyC1hyuRPom1GFl-3atw=w90-h90-p-rp-mo-br100",
-  "https://lh3.googleusercontent.com/a/ACg8ocIJLaIM2EVRKXk1pPBMe96ObBdcfOlFCccXLJHG5VUBOoLXdQ=w90-h90-p-rp-mo-br100",
-  "https://lh3.googleusercontent.com/a-/ALV-UjWLGXzJvXXEMJluncryZIfdht6VCupbOQR4s2Tsl6my4e6be77r=w90-h90-p-rp-mo-br100",
+  "/images/reviews/review-1.webp",
+  "/images/reviews/review-2.webp",
+  "/images/reviews/review-3.webp",
 ];
 
 export function Reviews() {
-  const { t } = useTranslation();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const reviewsRaw = t("reviews.review_list", { returnObjects: true }) as any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const reviews: any[] = Array.isArray(reviewsRaw) ? reviewsRaw : [];
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language || "en";
+  const reviewsData: Review[] = lang === "ar" ? reviewsAr : reviews;
 
   return (
-    <section className=" py-15 md:py-19" id="reviews">
-
+    <section className="py-15 md:py-19" id="reviews">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">
@@ -30,18 +31,20 @@ export function Reviews() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reviews.map((review, index) => (
+          {reviewsData.map((review, index) => (
             <div
-              key={index}
+              key={review.name}
               className="bg-background/60 rounded-3xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-primary-5"
             >
               <div className="flex items-center gap-4 mb-6">
-                <img
-                  src={reviewImages[index]}
+                <Image
+                  src={reviewImages[index] ?? fallbackAvatar}
                   alt={review.name}
+                  width={64}
+                  height={64}
+                  loading="lazy"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src =
-                      "/media/images/0BF3CE9C-37A5-4696-87F9-F1278E266A06.webp";
+                    e.currentTarget.src = fallbackAvatar;
                   }}
                   className="w-16 h-16 rounded-full object-cover border-2 border-primary/10"
                 />
@@ -50,7 +53,7 @@ export function Reviews() {
                     {review.name}
                   </h3>
                   <div className="flex gap-1 text-primary-dark">
-                    {[...Array(5)].map((_, i) => (
+                    {Array.from({ length: 5 }, (_, i) => (
                       <Star key={i} size={16} fill="gold" stroke="gold" />
                     ))}
                   </div>
