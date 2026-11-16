@@ -1,7 +1,8 @@
 import { Suspense } from "react";
-import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
 
-import { getMessages, type Lang } from "@/lib/i18n-server";
+import { getMessages } from "@/lib/i18n-server";
+import { isLocale } from "@/lib/locales";
 import { JsonLd } from "@/components/JsonLd";
 import { SectionScroller } from "@/components/SectionScroller";
 import { Navigation } from "@/components/Navigation";
@@ -15,14 +16,22 @@ import { ContactSection } from "@/components/ContactSection";
 import { FooterServer } from "@/components/FooterServer";
 import WaterSound from "@/components/WaterSound";
 
-export default async function Home() {
-  const lang: Lang =
-    (await cookies()).get("lang")?.value === "ar" ? "ar" : "en";
-  const messages = getMessages(lang);
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const messages = getMessages(locale);
 
   return (
     <>
-      <JsonLd lang={lang} />
+      <JsonLd lang={locale} />
       <Suspense fallback={null}>
         <SectionScroller />
       </Suspense>
@@ -57,7 +66,7 @@ export default async function Home() {
         chatOnWhatsApp={messages.contact.chat_on_whatsapp}
         followUs={messages.contact.follow_us}
       />
-      <FooterServer lang={lang} />
+      <FooterServer lang={locale} />
     </>
   );
 }

@@ -52,5 +52,34 @@ export function I18nProvider({
     };
   }, [i18n]);
 
+  useEffect(() => {
+    const saved = sessionStorage.getItem("moana-scroll");
+
+    if (saved !== null) {
+      sessionStorage.removeItem("moana-scroll");
+    }
+
+    const hash = window.location.hash;
+    const target = hash
+      ? document.getElementById(decodeURIComponent(hash.slice(1)))
+      : null;
+    const savedY = saved === null ? Number.NaN : Number(saved);
+
+    if (!target && !Number.isFinite(savedY)) return;
+
+    const apply = () => {
+      if (target) {
+        target.scrollIntoView();
+      } else {
+        window.scrollTo(0, savedY);
+      }
+    };
+
+    requestAnimationFrame(() => requestAnimationFrame(apply));
+    const retry = setTimeout(apply, 250);
+
+    return () => clearTimeout(retry);
+  }, []);
+
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 }

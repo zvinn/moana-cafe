@@ -5,7 +5,7 @@ export function FooterServer({ lang }: { lang: Lang }) {
 
   return (
     <footer className="bg-primary text-white">
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-6 py-6 text-center text-xs sm:flex-row sm:text-sm">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-6 py-6 pb-20 text-center text-xs sm:flex-row sm:pb-6 sm:pe-52 sm:text-sm">
         <p className="text-white/70">
           © {new Date().getFullYear()} {isAr ? "موانا كافيه" : "Moana Café"} ·{" "}
           {isAr ? "جميع الحقوق محفوظة" : "All rights reserved"}

@@ -72,13 +72,23 @@ export function Navigation() {
 
   const linksClassName = `text-sm font-semibold text-primary hover:text-primary-dark transition-colors relative after:content-[''] after:absolute after:bottom-[-5px] after:start-0 after:w-0 after:h-[1px] after:bg-primary after:rounded-e-full after:transition-all after:duration-300 hover:after:w-full`;
 
+  const currentLang = i18n.language === "ar" ? "ar" : "en";
+
+  const switchLanguage = (langCode: "en" | "ar") => {
+    document.cookie = `lang=${langCode}; path=/; max-age=31536000; samesite=lax`;
+    const hash = window.location.hash;
+
+    if (!hash) {
+      sessionStorage.setItem("moana-scroll", String(window.scrollY));
+    }
+
+    window.location.assign(`/${langCode}${hash}`);
+  };
+
   const renderLangToggle = (isMobile = false) => {
-    const langButton = (langCode: string, text: string) => (
+    const langButton = (langCode: "en" | "ar", text: string) => (
       <button
-        onClick={() => {
-          i18n.changeLanguage(langCode);
-          document.cookie = `lang=${langCode}; path=/; max-age=31536000; samesite=lax`;
-        }}
+        onClick={() => switchLanguage(langCode)}
         lang={langCode}
         className={cn(
           `relative transition-all font-semibold px-4 py-1 rounded`,
@@ -136,7 +146,7 @@ export function Navigation() {
 
         {/* Center Logo */}
         <Link
-          href="/"
+          href={`/${currentLang}`}
           className="flex items-center gap-2 group cursor-pointer "
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });

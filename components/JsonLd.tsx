@@ -1,5 +1,6 @@
 import phoneNumbers from "@/utils/phoneNumbers";
 import type { Lang } from "@/lib/i18n-server";
+import { MENU_PDF_PATH } from "@/content/menu";
 
 export function JsonLd({ lang }: { lang: Lang }) {
   const siteUrl =
@@ -10,7 +11,8 @@ export function JsonLd({ lang }: { lang: Lang }) {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     name: "Moana Café",
-    url: siteUrl,
+    url: `${siteUrl}/${lang}`,
+    inLanguage: lang,
     telephone: phoneNumber,
     email: "hello@moanacafes.com",
     address: {
@@ -48,7 +50,7 @@ export function JsonLd({ lang }: { lang: Lang }) {
     ],
     servesCuisine: ["Coffee", "Desserts", "Beverages", "Middle Eastern"],
     priceRange: "$$",
-    hasMenu: `${siteUrl}/media/files/Moana_Menu.pdf`,
+    hasMenu: `${siteUrl}${MENU_PDF_PATH}`,
     image: `${siteUrl}/og-image.png`,
     description:
       lang === "ar"
