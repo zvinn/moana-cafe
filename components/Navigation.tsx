@@ -17,6 +17,18 @@ import {
   Mail,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+function persistLocaleAndNavigate(langCode: "en" | "ar") {
+  document.cookie = `lang=${langCode}; path=/; max-age=31536000; samesite=lax`;
+  const hash = window.location.hash;
+
+  if (!hash) {
+    sessionStorage.setItem("moana-scroll", String(window.scrollY));
+  }
+
+  window.location.assign(`/${langCode}${hash}`);
+}
+
 export function Navigation() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -75,14 +87,7 @@ export function Navigation() {
   const currentLang = i18n.language === "ar" ? "ar" : "en";
 
   const switchLanguage = (langCode: "en" | "ar") => {
-    document.cookie = `lang=${langCode}; path=/; max-age=31536000; samesite=lax`;
-    const hash = window.location.hash;
-
-    if (!hash) {
-      sessionStorage.setItem("moana-scroll", String(window.scrollY));
-    }
-
-    window.location.assign(`/${langCode}${hash}`);
+    persistLocaleAndNavigate(langCode);
   };
 
   const renderLangToggle = (isMobile = false) => {
