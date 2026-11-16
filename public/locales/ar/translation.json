@@ -54,7 +54,15 @@
     "currency": "جنيه مصري",
     "view_menu": "عرض القائمة",
     "view_menu_file": "عرض ملف القائمة",
-    "share_menu": "مشاركة القائمة"},
+    "share_menu": "مشاركة القائمة",
+    "search_label": "ابحث في القائمة",
+    "search_placeholder": "ابحث في المشروبات والحلويات…",
+    "clear_search": "مسح البحث",
+    "close_search": "إغلاق البحث",
+    "results_count": "النتائج: {{count}}",
+    "no_results": "لا توجد نتائج لـ «{{query}}»",
+    "no_results_hint": "جرّب كلمة أقصر أو راجع الإملاء."
+  },
   "gallery": {
     "title": "المعرض",
     "subtitle": "نظرة داخل مقهانا وإبداعاتنا."

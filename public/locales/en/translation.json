@@ -56,7 +56,15 @@
     "currency": "EGP",
     "view_menu": "View Menu",
     "view_menu_file": "View menu file",
-    "share_menu": "Share menu"},
+    "share_menu": "Share menu",
+    "search_label": "Search the menu",
+    "search_placeholder": "Search drinks & desserts…",
+    "clear_search": "Clear search",
+    "close_search": "Close search",
+    "results_count": "Results: {{count}}",
+    "no_results": "No matches for “{{query}}”",
+    "no_results_hint": "Try a shorter word or check the spelling."
+  },
   "gallery": {
     "title": "Gallery",
     "subtitle": "A peek inside our café and creations."
