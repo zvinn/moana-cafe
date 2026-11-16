@@ -4,7 +4,7 @@ import { MENU_PDF_PATH } from "@/content/menu";
 
 export function JsonLd({ lang }: { lang: Lang }) {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://moana-cafe-master.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://moanacafes.com";
   const phoneNumber = phoneNumbers[0] || "+201552277001";
 
   const jsonLd = {
@@ -51,7 +51,7 @@ export function JsonLd({ lang }: { lang: Lang }) {
     servesCuisine: ["Coffee", "Desserts", "Beverages", "Middle Eastern"],
     priceRange: "$$",
     hasMenu: `${siteUrl}${MENU_PDF_PATH}`,
-    image: `${siteUrl}/og-image.png`,
+    image: `${siteUrl}/og-image.jpg`,
     description:
       lang === "ar"
         ? "مرحباً بكم في موانا كافيه، مكان هادئ على شاطئ البحر يقدم أجود أنواع القهوة والمخبوزات وإطلالات المحيط."

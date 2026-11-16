@@ -31,4 +31,4 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://moana-cafe-master.vercel.app
+          NEXT_PUBLIC_SITE_URL: https://moanacafes.com

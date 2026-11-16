@@ -19,7 +19,7 @@ const cairo = Cairo({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://moana-cafe-master.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://moanacafes.com";
 
 export const dynamicParams = false;
 
@@ -68,9 +68,10 @@ export async function generateMetadata({
       description: meta.description,
       images: [
         {
-          url: `${siteUrl}/og-image.png`,
-          width: 1898,
-          height: 1078,
+          url: `${siteUrl}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          type: "image/jpeg",
           alt: "Moana Café",
         },
       ],
@@ -79,7 +80,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
-      images: [`${siteUrl}/og-image.png`],
+      images: [`${siteUrl}/og-image.jpg`],
     },
     alternates: {
       canonical: `/${locale}`,
