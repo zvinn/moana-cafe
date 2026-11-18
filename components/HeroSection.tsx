@@ -15,7 +15,7 @@ export function HeroSection() {
   }
   return (
     <section
-      className="relative min-h-screen w-full flex items-center pt-28 md:pt-24 pb-20 md:pb-12 overflow-hidden bg-[url('/BGs/hero-bg.webp')] bg-no-repeat bg-right-bottom bg-cover"
+      className="relative min-h-screen w-full flex items-center pt-32 pb-20 md:pb-12 overflow-hidden bg-[url('/BGs/hero-bg.webp')] bg-no-repeat bg-right-bottom bg-cover"
       id="home"
     >
       {/* Background Decorative Elements */}

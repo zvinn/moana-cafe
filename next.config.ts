@@ -11,15 +11,6 @@ const nextConfig = {
     ],
   },
   allowedDevOrigins: ["192.168.8.167", "192.168.100.44"],
-  async redirects() {
-    return [
-      {
-        source: "/media/files/Moana_Menu.pdf",
-        destination: "/files/moana-menu-2026.pdf",
-        permanent: false,
-      },
-    ];
-  },
   async rewrites() {
     return {
       beforeFiles: [

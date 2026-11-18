@@ -1,6 +1,5 @@
 import phoneNumbers from "@/utils/phoneNumbers";
 import type { Lang } from "@/lib/i18n-server";
-import { MENU_PDF_PATH } from "@/content/menu";
 
 export function JsonLd({ lang }: { lang: Lang }) {
   const siteUrl =
@@ -50,7 +49,6 @@ export function JsonLd({ lang }: { lang: Lang }) {
     ],
     servesCuisine: ["Coffee", "Desserts", "Beverages", "Middle Eastern"],
     priceRange: "$$",
-    hasMenu: `${siteUrl}${MENU_PDF_PATH}`,
     image: `${siteUrl}/og-image.jpg`,
     description:
       lang === "ar"

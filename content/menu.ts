@@ -1,5 +1,3 @@
-export const MENU_PDF_PATH = "/files/moana-menu-2026.pdf";
-
 export interface MenuItem {
   name: string;
   price: number;

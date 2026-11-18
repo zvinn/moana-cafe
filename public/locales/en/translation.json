@@ -23,7 +23,9 @@
     "gallery": "Gallery",
     "reviews": "Reviews",
     "location": "Location",
-    "contact": "Contact"
+    "contact": "Contact",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
   },
   "why_us": {
     "title": "Why Choose Moana?",
@@ -55,8 +57,6 @@
     "subtitle": "Delicious bites and handcrafted drinks to pair with every mood.",
     "currency": "EGP",
     "view_menu": "View Menu",
-    "view_menu_file": "View menu file",
-    "share_menu": "Share menu",
     "search_label": "Search the menu",
     "search_placeholder": "Search drinks & desserts…",
     "clear_search": "Clear search",

@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FileText, Search, Share2, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import Link from "next/link";
 import {
   menuCategories,
   menuCategoriesAr,
-  MENU_PDF_PATH,
   type MenuCategory,
 } from "@/content/menu";
 import { searchMenu } from "@/lib/menu-search";
@@ -81,25 +79,6 @@ export function Menu() {
     });
   };
 
-  const handleShare = async () => {
-    const url = `${window.location.origin}${MENU_PDF_PATH}`;
-
-    if (!navigator.share) {
-      window.open(url, "_blank", "noopener,noreferrer");
-      return;
-    }
-
-    try {
-      await navigator.share({
-        title: "Moana Café",
-        text: "Check out Moana Café menu 🌊☕",
-        url,
-      });
-    } catch {
-      // User cancelled sharing
-    }
-  };
-
   const currency = lang === "ar" ? "جنيه مصري" : "EGP";
 
   return (
@@ -112,27 +91,7 @@ export function Menu() {
           <h2 className="order-1 text-3xl md:text-5xl font-bold text-primary tracking-tight">
             {t("menu.title")}
           </h2>
-          <div className="order-2 flex items-center gap-2 md:order-3 md:mt-12 md:justify-center">
-            <Link
-              href={MENU_PDF_PATH}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-background group flex items-center gap-2 px-4 py-2 text-sm md:gap-3 md:px-8 md:py-4 md:text-base bg-primary/90 rounded-full hover:bg-primary/80 transition font-semibold shadow-md"
-            >
-              <FileText className="size-4 md:size-6" />
-              {t("menu.view_menu_file")}
-            </Link>
-            <button
-              type="button"
-              onClick={handleShare}
-              aria-label={t("menu.share_menu")}
-              title={t("menu.share_menu")}
-              className="p-2 rounded-full text-primary hover:bg-primary/10 transition-colors"
-            >
-              <Share2 className="size-5 md:size-6" />
-            </button>
-          </div>
-          <p className="order-3 mt-2 w-full text-base md:order-2 md:mt-4 md:w-auto text-muted md:max-w-3xl md:mx-auto md:text-lg font-medium">
+          <p className="order-2 mt-2 w-full text-base md:mt-4 md:w-auto text-muted md:max-w-3xl md:mx-auto md:text-lg font-medium">
             {t("menu.subtitle")}
           </p>
         </div>
