@@ -37,6 +37,18 @@ export function FooterServer({ lang }: { lang: Lang }) {
           </a>
         </p>
       </div>
+      <p className="border-t border-white/10 px-6 py-3 text-center text-xs text-white/70">
+        © {new Date().getFullYear()}{" "}
+        <a
+          href="https://wasalat.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="uppercase underline hover:text-white"
+        >
+          wasalat
+        </a>
+        . {isAr ? "جميع الحقوق محفوظة" : "All rights reserved."}
+      </p>
     </footer>
   );
 }
