@@ -69,7 +69,13 @@ export function LocationServer({
                   <h4 className="text-lg font-bold text-primary mb-1">
                     {addressTitle}
                   </h4>
-                  <a href="https://maps.app.goo.gl/a62UFJAd68f6WeFu8" target="_blank" className="text-muted" style={{ whiteSpace: "pre-line" }}>
+                  <a
+                    href="https://maps.app.goo.gl/a62UFJAd68f6WeFu8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted"
+                    style={{ whiteSpace: "pre-line" }}
+                  >
                     {address}
                   </a>
                 </div>
@@ -96,7 +102,7 @@ export function LocationServer({
                     {phoneTitle}
                   </h4>
               {phoneNumbers.map((phone, idx) => (
-                  <a key={phone || idx} href={`tel:${phone}`} target="_blank" className="text-muted block my-1" dir="ltr">
+                  <a key={phone || idx} href={`tel:${phone}`} className="text-muted block my-1" dir="ltr">
                     {phone}
                   </a>
               ))}
@@ -111,7 +117,7 @@ export function LocationServer({
                   <h4 className="text-lg font-bold text-primary mb-1">
                     {emailTitle}
                   </h4>
-                  <a href={`mailto:hello@moanacafes.com`} target="_blank" className="text-muted text-nowrap" dir="ltr">hello@moanacafes.com</a>
+                  <a href="mailto:hello@moanacafes.com" className="text-muted text-nowrap" dir="ltr">hello@moanacafes.com</a>
                 </div>
               </div>
             </div>

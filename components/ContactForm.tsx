@@ -10,7 +10,9 @@ import phoneNumbers from "@/utils/phoneNumbers";
 function Toast({ type, message }: { type: string; message: string }) {
   return (
     <div
-      className={` px-5 py-3 rounded-xl shadow-lg text-background font-semibold transition-all duration-300
+      role="status"
+      aria-live="polite"
+      className={`px-5 py-3 rounded-xl shadow-lg text-background font-semibold transition-all duration-300
       ${type === "success" ? "bg-whatsapp" : "bg-destructive"} `}
     >
       {message}
@@ -26,10 +28,6 @@ export default function ContactForm() {
     null,
   );
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
-
-  // Simple animation
-  const animationClass =
-    "transition-all duration-700 opacity-100 translate-y-0";
 
   const validateFields = (formData: FormData) => {
     const newErrors: { [key: string]: boolean } = {};
@@ -72,7 +70,7 @@ export default function ContactForm() {
         `Name: ${name}\nPhone: ${phone}\nMessage: ${message}`,
       )}`;
 
-      window.open(whatsappUrl, "_blank");
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
       setToast({ type: "success", message: t("contact.sent_success") });
 
@@ -88,15 +86,19 @@ export default function ContactForm() {
   };
   return (
     <div
-      className={`bg-background/60 rounded-3xl p-8 md:p-12 shadow-lg border border-primary-5 opacity-0  ${animationClass}`}
+      className="bg-background/60 rounded-3xl p-8 md:p-12 shadow-lg border border-primary-5 transition-all duration-700 opacity-100 translate-y-0"
     >
       <form className="space-y-6" onSubmit={handleSubmit}>
         {/* Name */}
         <div className="space-y-2">
-          <label className="text-sm font-bold text-primary uppercase tracking-wide">
+          <label
+            htmlFor="contact-name"
+            className="text-sm font-bold text-primary uppercase tracking-wide"
+          >
             {t("contact.name_label")}
           </label>
           <input
+            id="contact-name"
             type="text"
             name="name"
             className={`w-full bg-base border-2 rounded-xl px-4 py-3 text-primary transition-colors placeholder:text-muted
@@ -111,10 +113,14 @@ export default function ContactForm() {
 
         {/* Phone */}
         <div className="space-y-2">
-          <label className="text-sm font-bold text-primary uppercase tracking-wide">
+          <label
+            htmlFor="contact-phone"
+            className="text-sm font-bold text-primary uppercase tracking-wide"
+          >
             {t("contact.phone_label")}
           </label>
           <input
+            id="contact-phone"
             type="tel"
             name="phone"
             dir={typeof i18n.dir === "function" ? i18n.dir() : (i18n.language?.startsWith("ar") ? "rtl" : "ltr")}
@@ -130,10 +136,14 @@ export default function ContactForm() {
 
         {/* Message */}
         <div className="space-y-2">
-          <label className="text-sm font-bold text-primary uppercase tracking-wide">
+          <label
+            htmlFor="contact-message"
+            className="text-sm font-bold text-primary uppercase tracking-wide"
+          >
             {t("contact.message_label")}
           </label>
           <textarea
+            id="contact-message"
             name="message"
             rows={4}
             className={`w-full bg-base border-2 rounded-xl px-4 py-3 text-primary resize-none transition-colors placeholder:text-muted
@@ -163,7 +173,7 @@ export default function ContactForm() {
             }`}
         >
           {loading ? (
-            <div className="animate-spin rounded-full h-5 w-5 border-2 border-bg border-t-transparent"></div>
+            <div className="animate-spin rounded-full h-5 w-5 border-2 border-background border-t-transparent"></div>
           ) : (
             <>
               <span>{t("contact.send_message")}</span>
