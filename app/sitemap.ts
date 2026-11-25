@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://moanacafes.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://moanacaffe.com";
 
 const languages = {
   en: `${siteUrl}/en`,

@@ -19,7 +19,7 @@ const cairo = Cairo({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://moanacafes.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://moanacaffe.com";
 
 export const dynamicParams = false;
 

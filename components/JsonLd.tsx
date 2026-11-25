@@ -3,7 +3,7 @@ import type { Lang } from "@/lib/i18n-server";
 
 export function JsonLd({ lang }: { lang: Lang }) {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://moanacafes.com";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://moanacaffe.com";
   const phoneNumber = phoneNumbers[0] || "+201552277001";
 
   const jsonLd = {
@@ -38,8 +38,8 @@ export function JsonLd({ lang }: { lang: Lang }) {
           "Saturday",
           "Sunday",
         ],
-        opens: "00:00",
-        closes: "23:59",
+        opens: "09:00",
+        closes: "02:00",
       },
     ],
     sameAs: [

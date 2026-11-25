@@ -11,6 +11,30 @@ const nextConfig = {
     ],
   },
   allowedDevOrigins: ["192.168.8.167", "192.168.100.44"],
+  // Section URLs are anchors on the /en and /ar homepages, not pages.
+  // Google indexed /location, /menu, ... (and /en/location, ...) — redirect
+  // them to the homepage anchor so they land on the right section.
+  async redirects() {
+    const sections = [
+      "home",
+      "why-us",
+      "menu",
+      "gallery",
+      "reviews",
+      "location",
+      "contact",
+    ];
+    const rules: { source: string; destination: string; permanent: boolean }[] =
+      [];
+    for (const section of sections) {
+      rules.push(
+        { source: `/${section}`, destination: `/en#${section}`, permanent: true },
+        { source: `/en/${section}`, destination: `/en#${section}`, permanent: true },
+        { source: `/ar/${section}`, destination: `/ar#${section}`, permanent: true },
+      );
+    }
+    return rules;
+  },
   async rewrites() {
     return {
       beforeFiles: [
